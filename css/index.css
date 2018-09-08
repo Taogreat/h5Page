@@ -12,6 +12,7 @@
 			.commonText{ color:white; line-height:1.5; font-size:15px;}
 			/*common结束*/
 			/*header样式*/
+			#wrap{height: 100%;}
 			#wrap > #head{background: white!important;width: 100%;}
 			#wrap > #head > .headMain{width: 1100px;height: 80px;margin: 0 auto;position: relative;}
 			#wrap > #head > .headMain > .logo,#wrap > #head > .headMain > .nav{}
@@ -98,7 +99,7 @@
 				#wrap > #content > .list >.course .course3 .item:nth-of-type(12) .backFace{background: url(../img/h5Project/bks.png) no-repeat;}
 				
 				
-				#wrap > #content > .list >.course .course3 .line{position:absolute;top:-7px;width: 9px;height: 410px;background: url(../img/h5Project/plus_row.png) no-repeat;}
+				#wrap > #content > .list >.course .course3 .line{position:absolute;top:-7px;width: 9px;height: 410px;background: url(img/h5Project/plus_row.png) no-repeat;}
 				#wrap > #content > .list >.course .course3 .line:nth-of-type(1){left:-5px}
 				#wrap > #content > .list >.course .course3 .line:nth-of-type(2){left:115px}
 				#wrap > #content > .list >.course .course3 .line:nth-of-type(3){left:235px}
@@ -181,3 +182,9 @@
 			
 			/*音频*/
 			#wrap > #head > .headMain > .music{width: 14px;height: 14px;background: url(../img/h5Project/musicon.gif);float: left;margin: 50px 0 0 5px;}
+			
+			/*开场动画*/
+			#wrap > #mask{height: 100%;width: 100%;position: absolute;z-index: 100;}
+			#wrap > #mask > .up{width: 100%;height: 50%;background: pink;transition: 1s height;}
+			#wrap > #mask > .down{width: 100%;height: 50%;background: deeppink;transition: 1s height;position: absolute;bottom: 0;}
+			#wrap > #mask > .line{height: 4px;width: 0;background: white;position: absolute;left: 0;top: 50%;margin-top: -2px;transition: 1s width}

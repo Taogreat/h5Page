@@ -1,4 +1,4 @@
-window.onload=function(){
+		window.onload=function(){
 			var arrow=document.querySelector("#wrap > #head > .headMain > .arrow");
 			var hlis=document.querySelectorAll("#wrap > #head > .headMain > .nav > ul > li");
 			var ups=document.querySelectorAll("#wrap > #head > .headMain > .nav > ul > li .up");
@@ -15,21 +15,53 @@ window.onload=function(){
 			var team3=document.querySelector("#wrap > #content > .list >.team .team3");
 			var music=document.querySelector("#wrap > #head > .headMain > .music");
 			var audio=document.querySelector("#wrap > #head > .headMain > .music > audio");
-			
+			var line=document.querySelector("#wrap > #mask > .line");
+			var mians=document.querySelectorAll("#wrap > #mask > div");
+			var mask=document.querySelector("#wrap > #mask");
 			//同步当前屏
 			var now=0;
 			
 			//上一屏
 			var prevIndex=0;
 			
+			
+			//开场动画
+			loadingAn();
+			function loadingAn(){
+				var arr = ['bg1.jpg','bg2.jpg','bg3.jpg','bg4.jpg','bg5.jpg','about1.jpg','about2.jpg','about3.jpg','about4.jpg','worksimg1.jpg','worksimg2.jpg','worksimg3.jpg','worksimg4.jpg','team.png','greenLine.png'];
+				var flag=0;
+				for(var i=0;i<arr.length;i++){
+					var img=new Image();
+					img.src="img/h5Project/"+arr[i];
+					img.onload=function(){
+						flag++;
+						line.style.width=flag/arr.length*100+"%";
+					}
+				}
+				line.addEventListener("transitionend",function(){
+					if(flag==arr.length){
+						for(var i=0;i<mians.length;i++){
+							mians[i].style.height=0+"px";
+						}
+						this.style.display="none";
+					}
+				})
+				
+				mians[0].addEventListener("transitionend",function(){
+					mask.remove();
+					audio.play();
+					home3D();
+				})
+			}
+			
 			//音频
 			music.onclick=function(){
 				if(audio.paused){
 					audio.play();
-					music.style.background ="url(img/h5Project/musicon.gif)";
+					music.style.background ="url(../img/h5Project/musicon.gif)";
 				}else{
 					audio.pause();
-					music.style.background ="url(img/h5Project/musicoff.gif)";
+					music.style.background ="url(../img/h5Project/musicoff.gif)";
 				}
 			}
 			//入场动画
@@ -220,7 +252,7 @@ window.onload=function(){
 			var oldIndex=0;
 			var timer3D=0;
 			var autoIndex=0;
-			home3D();
+			//home3D();
 			function home3D(){
 				for(var i=0;i<home2lis.length;i++){
 					home2lis[i].index=i;
